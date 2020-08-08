@@ -14,8 +14,7 @@ class AddJawabanrevisiToJawabanTable extends Migration
     public function up()
     {
         Schema::table('jawaban', function (Blueprint $table) {
-            //
-             $table->unsignedBigInteger('id_pertanyaan');
+            $table->unsignedBigInteger('id_pertanyaan');
 
             $table->foreign('id_pertanyaan')->references('id')->on('pertanyaan');
 

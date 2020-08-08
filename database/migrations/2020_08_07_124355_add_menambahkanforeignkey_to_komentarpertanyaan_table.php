@@ -14,7 +14,6 @@ class AddMenambahkanforeignkeyToKomentarpertanyaanTable extends Migration
     public function up()
     {
         Schema::table('komentarpertanyaan', function (Blueprint $table) {
-            //
             $table->unsignedBigInteger('pertanyaan_id');
 
             $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
@@ -32,9 +31,11 @@ class AddMenambahkanforeignkeyToKomentarpertanyaanTable extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['pertanyaan_id']);
-        $table->dropColumn('pertanyaan_id');
-        $table->dropForeign(['profile_id']);
-        $table->dropColumn('profile_id');
+        Schema::table('komentarpertanyaan', function (Blueprint $table) {
+            $table->dropForeign(['pertanyaan_id']);
+            $table->dropColumn('pertanyaan_id');
+            $table->dropForeign(['profile_id']);
+            $table->dropColumn('profile_id');
+        });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilTable extends Migration
+class AddVoteToLikedislikejawabanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,7 @@ class CreateProfilTable extends Migration
      */
     public function up()
     {
-        Schema::create('profil', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('namalengkap');
-            $table->string('email');
-            $table->string('foto');
-            $table->timestamps();
-        });
+        $table->integer('point');
     }
 
     /**
@@ -29,6 +23,6 @@ class CreateProfilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profil');
+       $table->dropColumn('point');
     }
 }

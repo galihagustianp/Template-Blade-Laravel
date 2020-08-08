@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVoteToLikedislikejawabanTable extends Migration
+class AddVoteToLikedislikepertanyaanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddVoteToLikedislikejawabanTable extends Migration
      */
     public function up()
     {
-        Schema::table('likedislikejawaban', function (Blueprint $table) {
+        Schema::table('likedislikepertanyaan', function (Blueprint $table) {
             $table->integer('point');
         });
     }
@@ -25,6 +25,6 @@ class AddVoteToLikedislikejawabanTable extends Migration
      */
     public function down()
     {
-         $table->dropColumn('point');
+        $table->dropColumn('likedislikepertanyaan');
     }
 }

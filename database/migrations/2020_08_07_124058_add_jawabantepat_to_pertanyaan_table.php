@@ -14,7 +14,6 @@ class AddJawabantepatToPertanyaanTable extends Migration
     public function up()
     {
         Schema::table('pertanyaan', function (Blueprint $table) {
-            //
             $table->unsignedBigInteger('jawabantepat_id');
             $table->foreign('jawabantepat_id')->references('id')->on('jawaban');
             $table->unsignedBigInteger('profile_id');
